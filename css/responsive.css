@@ -1,0 +1,114 @@
+/* LET'S GOOOOOO */
+
+/*
+ * This preserves our ratios for our lowest-supported resolutions.
+ * We basically don't support anything smaller than this.
+ */
+@media screen and (max-width: 360px) {
+    body,
+    html,
+    header,
+    main {
+        min-width: 360px;
+        width: 360px;
+    }
+}
+
+/*
+ * Below 400px, we shrink down my name in the top right just a wee bit.
+ * At the normal size, it wraps when we get under ~385px,
+ * which is wholly undesired.
+ * We also adjust the padding to try to preserve the top line of the name.
+ */
+@media screen and (max-width: 400px) {
+    .header-name {
+        font-size: 2.8em;
+    }
+
+    .header-right {
+        padding-bottom: 14px;
+    }
+}
+
+/*
+ * This is our real mid-range where things are significantly different.
+ * We have a single column until we hit 500px, then a few things happen.
+ * The first featured link shifts to a wider image and continues to stretch.
+ * The second and third (and all following, in theory) then make two columns.
+ */
+@media screen and (min-width: 500px) and (max-width: 749px) {
+    .featured-link:first-child {
+        width: 500px;
+    }
+
+    /* Take every even child of .featured-link and put it in the right column */
+    .featured-link:nth-child(2n) {
+        justify-content: flex-start;
+    }
+
+    .featured-link:nth-child(2n) .link-screen {
+        padding-right: 7px;
+    }
+
+    /*
+     * Take every odd child of .featured-link and put it in the left column
+     * EXCEPT for the first child, that's our wide image.
+     */
+    .featured-link:nth-child(2n+3) {
+        justify-content: flex-end;
+    }
+
+    .featured-link:nth-child(2n+3) .link-screen {
+        padding-left: 7px;
+    }
+
+}
+
+/*
+ * Once we get to our final size, we sort the featured links into 3 columns.
+ */
+@media screen and (min-width: 750px) {
+    /* This just keeps our images consistent in this final size range. */
+    .link-screen {
+        min-width: 240px;
+        max-width: 260px;
+    }
+
+    /* These last few format our 3 columns so they look pretty. */
+    .featured-link:nth-child(3n-2) {
+        justify-content: flex-start;
+    }
+
+    .featured-link:nth-child(3n-2) .link-screen {
+        padding-right: 7px;
+    }
+
+    .featured-link:nth-child(3n-1) {
+        justify-content: center;
+    }
+
+    .featured-link:nth-child(3n-1) .link-screen {
+        padding-right: 7px;
+        padding-left: 7px;
+    }
+
+    .featured-link:nth-child(3n) {
+        justify-content: flex-end;
+    }
+
+    .featured-link:nth-child(3n) .link-screen {
+        padding-left: 7px;
+    }
+
+}
+
+/*
+ * After we get over 800px, we set our static width and just expand the margins.
+ */
+@media screen and (min-width: 800px) {
+    body,
+    html {
+        width: 800px;
+        margin: 0 auto;
+    }
+}

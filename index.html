@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Adam Boyd: Portfolio Project</title>
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    </head>
+
+    <body>
+        <header>
+            <div class="header-content">
+                <!--
+                This section is split into header-left and header-right to separate
+                the logo and name/title between the far sides of the header with some flexbox magic.
+                -->
+                <section class="header-left">
+                    <img class="header-logo" src="img/GreaterNemoInkling_Red.jpg" alt="IT ME">
+                </section>
+                <section class="header-right">
+                    <h1 class="header-name">Adam Boyd</h1>
+                    <p class="header-description">Front-End Ninja</p>
+                </section>
+            </div>
+        </header>
+
+        <main>
+            <img class="main-screen" src="img/mario_dark_640.png" alt="knock-knock-knockin on front-end's door">
+            <section class="featured-area">
+                <p class="featured-title">Featured Work</p>
+                <div class="featured-content">
+                    <!--
+                    I understand that I will eventually replace these with projects I do for this course.
+                    In the meantime, I've filled the space with projects that I've done for myself.
+                    -->
+                    <section id="feature-arl" class="featured-link">
+                        <picture>
+                            <source media="(min-width: 500px) and (max-width: 749px)" srcset="img/screen_arl_500.png">
+                            <source media="(min-width: 750px)" srcset="img/screen_arl_240.png">
+                            <img class="link-screen" src="img/screen_arl_240.png" alt="a-roguelike">
+                        </picture>
+                        <p class="link-name">a-roguelike</p>
+                        <p class="link-url">http://mivida.juegos/games/arl</p>
+                    </section>
+                    <section id="feature-dgt" class="featured-link">
+                        <picture>
+                            <img class="link-screen" src="img/screen_dgt_240.png" alt="dungentool">
+                        </picture>
+                        <p class="link-name">dungentool</p>
+                        <p class="link-url">http://mivida.juegos/apps/dungentool</p>
+                    </section>
+                    <section id="feature-pom" class="featured-link">
+                        <picture>
+                            <img class="link-screen" src="img/screen_pom_240.png" alt="pom-rl">
+                        </picture>
+                        <p class="link-name">pom-rl</p>
+                        <p class="link-url">http://mivida.juegos/games/pom</p>
+                    </section>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <!--
+            Yo I know there wasn't a footer in the example,
+            but the page felt like it ended really abruptly.
+            It just... felt right, you know? Like it was meant to be.
+            -->
+            <section class="social-info">
+                <p class="my-twitter">twitter: @greater_nemo</p>
+                <p class="my-github">github: greaternemo</p>
+            </section>
+        </footer>
+
+        <!--
+        OKAY LOOK
+        I spent probably an hour trying to figure out how to turn the images into links.
+        After trying to cram an <img> into an <a> and some other jank, I realized there was
+        a WAAAAY easier way to do what I wanted, which was "do a link but don't underline everything"
+        -->
+        <script>
+            var feat_arl = document.getElementById('feature-arl');
+            var feat_dgt = document.getElementById('feature-dgt');
+            var feat_pom = document.getElementById('feature-pom');
+
+            feat_arl.addEventListener('click', function() {
+                window.open('http://mivida.juegos/games/arl');
+            });
+            feat_dgt.addEventListener('click', function() {
+                window.open('http://mivida.juegos/apps/dungentool');
+            });
+            feat_pom.addEventListener('click', function() {
+                window.open('http://mivida.juegos/games/pom');
+            });
+        </script>
+
+    </body>
+</html>
